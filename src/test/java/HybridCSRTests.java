@@ -60,6 +60,8 @@ public class HybridCSRTests {
         QTESLAPublicKeyParameters csrSecondary = fromSubjectPublicKeyInfo(HybridKey.fromCSR(csr).getKey());
         assertArrayEquals(csrSecondary.getPublicData(), secondaryPublic.getPublicData());
         assertEquals(csrSecondary.getSecurityCategory(), secondaryPublic.getSecurityCategory());
+
+        System.out.println(PemUtils.encodeObjectToPEM(csr));
     }
 
     private static PublicKey getKeyFromCSR(PKCS10CertificationRequest csr) throws Exception {
